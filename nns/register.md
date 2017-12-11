@@ -60,18 +60,19 @@ namehash+0002 | 规则合约scripthash
 key | value
 ---|---
 namehash+0001 | 登记员地址scripthash
-namehash+0002 | 解析器合约scripthash
-namehash+0003 | 注册时间unix时间戳
+namehash+0002 | 注册时间unix时间戳
+namehash+0003 | 解析器合约scripthash
+
 
 &emsp;&emsp;namehash附加0001（2位16进制数）代表登记员地址（钱包地址的等价物），附加0002（2位16进制数）代表解析器合约hash，附加0003（2位16进制数）代表注册时间unix时间戳（以此计算到期）。
 
-### 主合约（存储合约）
+### 存储合约（主合约）
   - 注册器的入口
   - 实现查询域名所有权方法，输入namehash，在私有化存储区查询，输出所有者scripthash（address的一种等价物）
   - 实现允许规则合约允许的注册行为，输入nanmehash、所有者scripthash，执行存储区写入
-  - 实现允许规则合约允许的注册变更行为，输入nanmehash、所有者scripthash，执行存储区写入
-  - 实现允许规则合约允许的注销行为，输入namehash，执行清除指定key的value
-  - 实现允许规则合约允许的子域名注册（管理）行为，输入子域名namehash、子域名管理者scripthash，执行存储区写入
+  - 实现允许规则合约允许的注册变更行为，输入nanmehash、所有者scripthash，执行存储区擦除后写入
+  - 实现允许规则合约允许的注销行为，输入namehash，执行擦除指定key的value
+  - 实现允许规则合约允许的子域名注册（管理）行为，输入子域名namehash、子域名管理者scripthash，执行存储区写入（或擦除后写入）
   - 实现直接返回解析结果方法，输入namehash，从存储区取出对应解析器合约hash，动态调用（NEP4）指定解析器合约，返回对应解析值
   - 实现允许规则合约允许的解析器器设置行为，输入namehash、解析器hash，执行存储区写入
   - 存储合约首先从根域名注册器私有化存储区去除当前合法的规则合约hash，并以此作为参数调用规则合约。（NEP4动态合约调用）
