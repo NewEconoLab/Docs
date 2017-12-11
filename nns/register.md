@@ -1,10 +1,20 @@
-# 根注册器
+# 顶级域名注册器
 &emsp;&emsp;一个智能合约，可以管理顶级域名和顶级域名注册器存储合约、规则合约的对应关系
 ## 管理顶级域名的实现
-&emsp;&emsp;使用合约私有存储区保存顶级域名namehash和顶级域名注册器的scripthash的对应关系，namehash为key，scripthash为value
-## 根注册器的治理
+&emsp;&emsp;使用合约私有存储区保存顶级域名namehash和顶级域名注册器的scripthash的对应关系，namehash为key，scripthash为value 
+
+&emsp;&emsp;顶级域名注册器私有化存储区数据结构
+
+key | value
+---|---
+namehash+0001 | 存储合约scripthash
+namehash+0002 | 规则合约scripthash
+
+&emsp;&emsp;namehash附加0001（2位16进制数）代表存储合约，附加0002（2位16进制数）代表规则合约，value存储合约的scripthash。
+
+## 顶级域名注册器的治理
 &emsp;&emsp;根注册器的修改操作需要若干奇数根登记员（地址或合约）进行签名，签名超过三分之二方可执行。根注册器的操作应该是非常谨慎的，仅为按需增加新顶级域名与修复已有顶级域名注册器重大bug而操作。
-# 顶级域名注册器
+# 主域名注册器
 &emsp;&emsp;定义了一个顶级域名的注册规范，不同顶级域名可能有不同规范，目前我们已经设定如下顶级域名与规则：
 ## .test
    - 该顶级域名及其下域名树仅为测试目的设立
@@ -31,6 +41,16 @@
 
 ## 主域名的注册实现
 &emsp;&emsp;注册器由2个互相协作的合约组成，分别为存储合约与规则合约，每个顶级域名的注册器的2个合约hash由根域名登记员管理；
+### 主域名注册器私有化存储区数据结构
+
+key | value
+---|---
+namehash+0001 | 登记员地址scripthash
+namehash+0002 | 解析器合约scripthash
+namehash+0003 | 注册时间unix时间戳
+
+&emsp;&emsp;namehash附加0001（2位16进制数）代表登记员地址（钱包地址的等价物），附加0002（2位16进制数）代表解析器合约hash，附加0003（2位16进制数）代表注册时间unix时间戳（以此计算到期）。
+
 ### 存储合约
   - 注册器的入口
   - 实现按namehash在私有化存储区查询所有者scripthash（address的一种等价物）
@@ -55,14 +75,13 @@
     1. 从域名中按英文句号（.）为分隔符拆分出，顶级域名、主域名（二级域名）、子域名三部分
     2. 将三部分全部按照UTF8字符集转换为byte[]字节数组
     3. 将三部分字节数组按照顶级域名、主域名（二级域名）、子域名的顺序进行串接
-    4. 使用sha256（sha2）算法对串接后的字节数组进行散列运算
-    5. 再次使用sha256（sha2）算法对上面得到的散列进行散列运算，此32位长度字节数组的运算结果即为namehash结果值
+    4. 使用[Neo hash256算法](https://github.com/neo-project/neo/blob/master/neo/Cryptography/Crypto.cs)对串接后的字节数组进行散列运算，此32位长度字节数组的运算结果即为namehash结果值
   - namehash应用场景
     - 合约中使用（如规则合约）
     - 客户端使用（如查询UI）
-  - namehash算法验证参数
-    - 域名：qingmingzi.neo
-    - namehash:9b87a694f0a282b2b5979e4138944b6805350c6fa3380132b21a2f12f9c2f4b6
+  - namehash算法返回应符合以下预期
+    - 输入域名：qingmingzi.neo
+    - 返回namehash:9b87a694f0a282b2b5979e4138944b6805350c6fa3380132b21a2f12f9c2f4b6
 
 ### namecheck服务（API）
 &emsp;&emsp;namecheck为NEL向公众提供一个API服务，其功能旨在为NNS用户提供统一的域名规范化判别标准。由于智能合约不适宜执行规范化验证这类高消耗计算，故而采用链外接口提供。namecheck实质上并非强制性规范，只是推荐性的，但是仍希望所有nns参与者遵守。
