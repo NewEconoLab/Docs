@@ -26,8 +26,19 @@ namehash+0002 | 规则合约scripthash
 
 &emsp;&emsp;namehash附加0001（2位16进制数）代表存储合约，附加0002（2位16进制数）代表规则合约，value存储合约的scripthash。
 
+## 方法定义
+
+方法定义 | 作用
+---|---
+byte[] Query(byte[] namehashplus) | 输入顶级域名namehash+类型定义,返回主域名注册器合约scripthash
+bool SetRegister(string domain,byte[] type,byte[] scripthash) | 输入顶级域名、合约类型、注册器合约hash，执行存储区写入
+bool IsChecked(byte[][] scripthash) | 输入根登记员地址scripthash数组，验证当前操作是否由2/3以上签名。任何修改操作都在此函数返回为真后继续
+
+
+
 ## 顶级域名注册器的治理
 &emsp;&emsp;根注册器的修改操作需要若干奇数根登记员（地址或合约）进行签名，签名超过三分之二方可执行。根注册器的操作应该是非常谨慎的，仅为按需增加新顶级域名与修复已有顶级域名注册器重大bug而操作。
+
 # 主域名注册器
 &emsp;&emsp;定义了一个顶级域名的注册规范，不同顶级域名可能有不同规范，目前我们已经设定如下顶级域名与规则：
 ## .test
@@ -87,6 +98,36 @@ namehash+0003 | 解析器合约scripthash
   - 实现需强制注销判断方法，返回布尔型
   - 根域名注册器中存储的规则合约hash地址决定注册器使用何种规则，规则应该在重大bug前提下被谨慎变更
  
+## 方法定义
+### 存储合约（主合约）
+
+方法定义 | 作用
+---|---
+byte[] Query(string domain, string name, string subname) | 将输入参数导入规则合约进行验证,验证有效性、是否过期等,验证通过返回域名登记员地址scripthash
+string QueryResolver(string domain, string name, string subname) | 将输入参数导入规则合约进行验证,验证有效性、是否过期等,验证通过动态调用对应解析器合约,返回域名解析值（每个解析器实例都应实现此接口）
+bool SetOwner(string domain, string name, string subname,byte[] owner) | 将输入参数导入规则合约进行验证，验证注册权后允许将主域名所有权写入存储区,以执行时间为注册时间戳
+bool SetSubname（string domain, string name, string subname,byte[] subnameManger） | 将参数导入规则合约验证，验证操作者对主域名的所有权后，允许设置子域名管理者，以主域名注册时间戳为子域名注册时间戳
+bool SetResolver(string domain, string name, string subname，byte[] scripthash) | 将参数导入规则合约验证，验证操作者是主域名所有者或子域名管理者，允许设置域名解析器合约
+bool TransferOwner（string domain, string name, string subname，byte[] newowner） | 将参数导入规则合约验证，验证操作者对主域名所有权后，允许更换登记员，更换后主域名注册时间戳不变。==【变更子域名管理者不应使用此方法而应使用setSubname()】==
+bool CancelOwner(string domain, string name, string subname) | 注销一个登记员对一个namehash的所有权，namehash导入规则合约验证，验证为主域名所有者允许注销域名。当域名到期时将被强制注销。主域名注销后，子域名、解析器合约地址在被使用时会被强制注销，
+
+
+
+### 规则合约
+
+方法定义 | 作用
+---|---
+bool IsOwner（byte[] namehash） | 输入namehash，判断当前调用合约的交易是否是被namehash所有者签名的
+bool IsExpire（byte[] namehash）| 输入namehash，判断域名是否已过期
+bool IsValid（string domain, string name, string subname）| 输入域名，判断域名是否有效
+bool IsLegal（string domain, string name, string subname）| 输入域名，判断顶级域名是否合法、域名长度是否合法等
+bool AllowRegiste(string domain, string name, string subname,byte[] scripthash) | 输入域名,判断请求人是否有权注册主域名
+bool AllowManage(string domain, string name, string subname,byte[] scripthash) | 输入域名,判断请求人是否有权管理子域名、解析器地址
+bool TryCancelOwner（string domain, string name, string subname）| 判断一个域名是否需要被强制注销，如果需要则调用主合约 CancelOwner(）注销域名
+bool TryCancelResolver（string domain, string name, string subname）| 判断一个域名的解析设置是否需要被强制注销，如果需要则调用主合约SetResolver()将解析合约地址设置为空。
+
+
+
 ## 域名的规范化
 
 ### namehash算法
