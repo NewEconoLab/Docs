@@ -21,8 +21,8 @@ nns:addr.qingmingzi.neo
 
 key | value
 ---|---
-namehash+0001 | 存储合约scripthash
-namehash+0002 | 规则合约scripthash
+namehash+0000 | 存储合约scripthash
+namehash+0001 | 规则合约scripthash
 
 &emsp;&emsp;namehash附加0001（2位16进制数）代表存储合约，附加0002（2位16进制数）代表规则合约，value存储合约的scripthash。
 
@@ -31,7 +31,7 @@ namehash+0002 | 规则合约scripthash
 方法定义 | 作用
 ---|---
 byte[] Query(byte[] namehashplus) | 输入顶级域名namehash+类型定义,返回主域名注册器合约scripthash
-bool SetRegister(string domain,byte[] type,byte[] scripthash) | 输入顶级域名、合约类型、注册器合约hash，执行存储区写入
+bool SetRegister(string label,byte[] type,byte[] scripthash) | 输入顶级域名、合约类型、注册器合约hash，执行存储区写入
 bool IsChecked(byte[][] scripthash) | 输入根登记员地址scripthash数组，验证当前操作是否由2/3以上签名。任何修改操作都在此函数返回为真后继续
 
 
@@ -70,9 +70,9 @@ bool IsChecked(byte[][] scripthash) | 输入根登记员地址scripthash数组，验证当前操
 
 key | value
 ---|---
-namehash+0001 | 登记员地址scripthash
-namehash+0002 | 注册时间unix时间戳
-namehash+0003 | 解析器合约scripthash
+namehash+0000 | 登记员地址scripthash
+namehash+0001 | 注册时间unix时间戳
+namehash+0002 | 解析器合约scripthash
 
 
 &emsp;&emsp;namehash附加0001（2位16进制数）代表登记员地址（钱包地址的等价物），附加0002（2位16进制数）代表解析器合约hash，附加0003（2位16进制数）代表注册时间unix时间戳（以此计算到期）。
@@ -130,17 +130,27 @@ bool TryCancelResolver（string domain, string name, string subname）| 判断一个域
 
 ## 域名的规范化
 
-### namehash算法
-&emsp;&emsp;采用namehash算法将所有域名处理成统一范式，方便处理同时具有一定安全和保密性
-  - namehash算法实现
-    1. 从域名中按英文句号（.）为分隔符拆分出，顶级域名、主域名（二级域名）、子域名三部分
-    2. 将三部分全部按照UTF8字符集转换为byte[]字节数组
-    3. 将三部分字节数组按照顶级域名、主域名（二级域名）、子域名的顺序进行串接
-    4. 使用[Neo hash256算法](https://github.com/neo-project/neo/blob/master/neo/Cryptography/Crypto.cs)对串接后的字节数组进行散列运算，此32位长度字节数组的运算结果即为namehash结果值
-  - namehash应用场景
+### Namehash算法
+&emsp;&emsp;采用Namehash算法将所有域名处理成统一范式，方便处理同时具有一定安全和保密性
+  - Namehash算法实现
+    1. 从域名中按英文句号（.）为分隔符拆分出，顶级域名、主域名（二级域名）、子域名多个部分
+    2. 将多个部分全部按照UTF8字符集转换为byte[]字节数组
+    3. 将每部分字节数组按照统一的Namehash函数递归处理
+    <pre>
+	///参数namehash为上级域名的Namehash()结果
+	///参数label为本级域名的字符串
+	///返回值为32位byte数组
+
+	byte[32] Namehash(byte[32] namehash,string label)
+	</pre>
+    4. Namehash()使用[Neo hash256算法](https://github.com/neo-project/neo/blob/master/neo/Cryptography/Crypto.cs)，对字节数组进行散列运算，此32位长度字节数组的运算结果即为namehash结果值
+	<pre>
+	return hash256(namehash + label)
+	</pre>
+  - Namehash应用场景
     - 合约中使用（如规则合约）
     - 客户端使用（如查询UI）
-  - namehash算法返回应符合以下预期
+  - Namehash算法返回应符合以下预期
     - 输入域名：qingmingzi.neo
     - 返回namehash:9b87a694f0a282b2b5979e4138944b6805350c6fa3380132b21a2f12f9c2f4b6
 
