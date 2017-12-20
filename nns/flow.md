@@ -17,7 +17,7 @@ namehash计算之后的域名称为node
         address owner;//拥有者地址
         int ttl;
     }
-    dictionary<node,nodeinfo)
+    dictionary<node,nodeinfo>
     ```
 以下接口存在于智能合约
 
