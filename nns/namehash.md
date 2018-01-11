@@ -49,25 +49,27 @@ NameHash算法是将域名转成DomainArray以后，逐级连接计算hash的方法，代码如下
 
 ## 快速解析
 完整的解析传入整个DomainArray,由智能合约去逐个检查一层层解析。
-计算NameHash的过程也可以挪到客户端算好，再传入只能合约。
+计算NameHash的过程也可以挪到客户端算好，再传入智能合约。
 调用方式如下
 
     //查询 http://aaa.bbb.test
-    var hash = nameHashArray(["test","bb"]);//可以客户端计算
+    var hash = nameHashArray(["test","bbb"]);//可以客户端计算
     NNS.Resolve("http",hash,"aaa");//调用智能合约
 
 或者
 
     //查询 http://bbb.test
-    var hash = nameHashArray(["test","bb"]);//可以客户端计算
-    NNS.Resolve("http",hash,null);//调用智能合约
+    var hash = nameHashArray(["test","bbb"]);//可以客户端计算
+    NNS.Resolve("http",hash,"");//调用智能合约
 
 你也许会考虑查询 aaa.bbb.test 的过程为什么不是这样
 
     //查询 http://aaa.bbb.test
-    var hash = nameHashArray(["test","bb","aaa"]);//可以客户端计算
-    NNS.Resolve("http",hash,null);//调用智能合约
+    var hash = nameHashArray(["test","bbb","aaa"]);//可以客户端计算
+    NNS.Resolve("http",hash,"");//调用智能合约
 
 我们要考虑aaa.bb.test 是否拥有一个独立的解析器，如果aaa.bb.test被卖给了别人，他指定了一个独立的解析器，这样是可以查询到的。
 如果aaa.bb.test 并没有独立的解析器，他是有bb.test的解析器来解析。
 那么这样就无法查询到
+
+而采用第一种查询方式，无论aaa.bb.test 是否拥有一个独立的解析器，都可以查询到。
