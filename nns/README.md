@@ -3,6 +3,8 @@
 参考文档
 >[NNS系统概述](system.md)
 >
+>[NameHash算法详解](namehash.md)
+>
 >[注册器详情](register.md)
 >
 >[流程接口定义](flow.md)

@@ -1,4 +1,7 @@
 # NNS域名服务概览
+>
+>[NameHash算法详解](namehash.md)
+>
 # NNS 是什么
 NNS是Neo的域名服务，是一个基于Neo区块链的分布式、开源和可扩展的域名系统。
 
