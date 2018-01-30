@@ -7,3 +7,23 @@ NEL（NewEconnoLab）是NEO生态的中国开发志愿者社区。我们致力�
 ## NEL技术框架图
 
 ![NEL Technical Framework Diagram](NELTechnicalFrameworkDiagram.png)
+
+
+## NEO开发技术学习
+
+NEL 搭建了多种交流平台 
+
+### NEL区块链技术交流平台
+
+主QQ群：377076520
+
+Discord 群：[discord邀请链接](https://discord.gg/5V874Et)
+
+程序员QQ群：690086107
+
+论坛:......
+
+NEL新经济实验室 微信号： NewEconoLab
+
+### NEO开发技术学习手册
+[传送门](study/study.md)
