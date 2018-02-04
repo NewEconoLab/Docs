@@ -60,7 +60,36 @@ NeoThinSDK_TS(https://github.com/NewEconoLab/neo-thinsdk-ts)
 NEO轻钱包开发SDK,Typescript 版
 
 
-## 学习课程
+## 通用学习资料
 
-### 了解NEO
-[传送门](lesson00/start.md)
+这部分资料为开发者初步了解NEO系统准备
+
+[00了解NEO的基本使用](startlesson/start.md)
+
+[01了解UTXO](startlesson/utxo.md)
+
+[02了解NEO的基本架构](startlesson/neobase.md)
+
+[03了解NEO智能合约](startlesson/smartcontract.md)
+
+## 定向学习资料
+
+以下资料为不同方向的开发者准备
+
+### 1.Neo 节点开发与修改
+
+### 2.pc版轻钱包开发
+
+### 3.web版轻钱包开发
+
+### 4.智能合约开发
+
+### 5.交易所开发
+
+### 6.浏览器开发
+
+### 7.运维技能
+
+[部署私链]
+
+
