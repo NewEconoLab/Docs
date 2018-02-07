@@ -76,7 +76,7 @@ NEO轻钱包开发SDK,Typescript 版
 
 ## 定向学习资料
 
-以下资料为不同方向的开发者准备
+以下资料为不同方向的开发者准备，排名不分先后，都很重要。
 
 ### 1.Neo 节点开发与修改
 
@@ -85,6 +85,7 @@ NEO轻钱包开发SDK,Typescript 版
 ### 3.web版轻钱包开发
 
 ### 4.智能合约开发
+[NEO智能合约开发（一）不可能完成的任务](smartcontract/lesson01-imf.md)
 
 ### 5.交易所开发
 
@@ -92,6 +93,6 @@ NEO轻钱包开发SDK,Typescript 版
 
 ### 7.运维技能
 
-[部署私链](DevOps/DockerNeoPrivatenet.md)
+[Docker技术快速构建Neo私链](DevOps/DockerNeoPrivatenet.md)
 
 
