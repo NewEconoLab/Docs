@@ -92,6 +92,6 @@ NEO轻钱包开发SDK,Typescript 版
 
 ### 7.运维技能
 
-[部署私链]
+[部署私链](DevOps/DockerNeoPrivatenet.md)
 
 
