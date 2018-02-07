@@ -70,6 +70,8 @@ NEO轻钱包开发SDK,Typescript 版
 
 [01了解UTXO](startlesson/utxo.md)
 
+[Video UTXO小实验](https://v.qq.com/x/page/l0544i8lnwm.html)
+
 [02了解NEO的基本架构](startlesson/neobase.md)
 
 [03了解NEO智能合约](startlesson/smartcontract.md)
@@ -86,6 +88,8 @@ NEO轻钱包开发SDK,Typescript 版
 
 ### 4.智能合约开发
 [NEO智能合约开发（一）不可能完成的任务](smartcontract/lesson01-imf.md)
+
+[Video 如何调试智能合约](https://v.qq.com/x/page/r0537xvmwm1.html)
 
 ### 5.交易所开发
 
