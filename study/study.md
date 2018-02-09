@@ -66,6 +66,8 @@ NEO轻钱包开发SDK,Typescript 版
 
 看这部分内容前建议先看官网技术文档，这里针对性更强，在解释上面更注重对程序部分的说明。官网的内容更加普适，建议先阅读。
 
+[Video 如何学习NEO开发](https://v.qq.com/x/page/m05494b9plq.html)
+
 [00了解NEO的基本使用](startlesson/start.md)
 
 [01了解UTXO](startlesson/utxo.md)
