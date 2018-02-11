@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\nns"
+    "\\nns",
+    "\\study",
+    "\\study\\DevOps",
+    "\\study\\startlesson"
   ],
-  "SelectedNode": "\\nns\\register.md",
+  "SelectedNode": "\\study\\DevOps\\DockerNeoPrivatenet.md",
   "PreviewInSolutionExplorer": false
 }
