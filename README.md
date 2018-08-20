@@ -27,3 +27,24 @@ NEL新经济实验室 微信号： NewEconoLab
 
 ### NEO开发技术学习手册
 [传送门](study/study.md)
+
+### NEL开发者社区激励计划
+* 目的：激励开发者参与NEL项目开发、自行设计开发NEO相关生态项目，推动社区化NEO生态开发
+
+* 社区：https://github.com/NewEconoLab
+
+* 规则：
+
+  * 在NEL github上提交issues（仅文字说明）
+    * 小建议或轻度bug发现，奖励50 NNC
+    * 重要建议或严重bug发现，奖励100 NNC
+  * 在NEL github上提交pull requests（贡献代码）
+    * 小规模代码优化，奖励200 NNC
+    * 重要代码优化，奖励300 NNC
+  * 自己行设计并开发NEO生态项目，并将项目源码提交到NEL github，奖励1000 NNC
+  
+* 确认方式：NEL会主动搜集github活动情况，联系相关开发者
+
+* 审核周期：每两周审核一次，激励名单将为NEL半月报的一部分公布
+
+* 激励发放周期：公布后一周内发放到位
