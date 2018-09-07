@@ -22,6 +22,16 @@
 
    建议参考[Docker官网](https://docs.docker.com/engine/installation/)构建Docker环境，具体操作不再赘述。
 
+   sudo yum install -y yum-utils \
+      device-mapper-persistent-data \
+      lvm2
+  
+   sudo yum-config-manager \
+      --add-repo \
+      https://download.docker.com/linux/centos/docker-ce.repo
+    
+   sudo yum install docker-ce
+
    Docker支持所有系统，包括Linux、Windows、Mac，Linux为原生支持。
 
    笔者以CentOS 7.4
