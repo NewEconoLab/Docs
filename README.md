@@ -17,11 +17,9 @@ NEL 搭建了多种交流平台
 
 主QQ群：377076520
 
-Discord 群：[discord邀请链接](https://discord.gg/5V874Et)
-
 程序员QQ群：690086107
 
-论坛:......
+论坛:https://bbs.neldev.net/
 
 NEL新经济实验室 微信号： NewEconoLab
 
