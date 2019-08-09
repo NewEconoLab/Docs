@@ -1,3 +1,6 @@
+[English](#en) [简体中文](#zh)
+
+<a name="zh">简体中文 : </a>
 # NEL介绍
 
 本项目包含了NEL开发的主要项目的说明文档，可点击本项目内不同目录查看不同项目说明。
@@ -45,4 +48,53 @@ NEL新经济实验室 微信号： NewEconoLab
 ## NEL区块链浏览器介绍
 [传送门](scan/scan.md)
 
+***
 
+<a name="en"> English :</a>
+
+# NEL Introduction
+
+This project contains documentations of the main projects developed by NEL. You can click on different directories in this project to view different project descriptions.
+
+## NEL Introduction
+
+NEL（NewEconnoLab）is a China-based NEO open source developer community. We are committed to producing blockchain developers and developing projects. 
+
+Go to [official website] (https://nel.group/) for more information.
+
+## NEL project links
+
+[Blockchain explorer](https://scan.nel.group/)
+
+[Blockchain wallet](https://wallet.nel.group/#/login)
+
+[NEO Name Service](https://neons.name/)
+
+[Contract debugger](https://neoray.nel.group/#/login)
+
+[Browser extension wallet](https://teemo.nel.group/index.html)
+
+## NEL technical framework diagram
+
+![NEL Technical Framework Diagram](NELTechnicalFrameworkDiagram.png)
+
+
+## NEO development technology learning
+
+NEL has a variety of communication platforms
+
+#### NEL Blockchain technology exchange platform
+
+Main QQ group：377076520
+
+Developer QQ group：690086107
+
+Forum: https://bbs.neldev.net/
+
+NEL WeChat account：NewEconoLab
+
+#### NEO development technology study manual
+[link](study/study.md)
+
+## NEL blockchain explorer introduction
+[link](scan/scan.md)
