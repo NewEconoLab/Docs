@@ -61,7 +61,7 @@ Although the data on the blockchain is open and transparent, it is not easy to q
 
 ## Project link && Projects behind the NEL blockchain explorer
 
-NEL_Scan : A blockchain explorer project that shows the user the data on the blockchain._[传送门](https://github.com/NewEconoLab/NEL_Scan-Web-React.git)_
+NEL_Scan : A blockchain explorer project that shows the user the data on the blockchain._[link](https://github.com/NewEconoLab/NEL_Scan-Web-React.git)_
  
 NEL_Scan_API : A project that provides an interface specifically for this blockchain explorer project. _[link](https://github.com/NewEconoLab/NEL_Scan_API)_
 
