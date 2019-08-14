@@ -7,9 +7,6 @@
 ## 项目初衷
 区块链上的数据虽然是公开透明的，但是却不易查询和阅读。我们希望建立一个项目，能够将链上的数据方便快捷的展示给用户。
 
-## 项目地址
-_[传送门](https://github.com/NewEconoLab/NELBrowser-Web-React.git)_
-
 ## 能用浏览器查询什么？
  - 最新的区块高度
  - 某个区块的详情
@@ -22,7 +19,10 @@ _[传送门](https://github.com/NewEconoLab/NELBrowser-Web-React.git)_
  - NNS域名相关的所有信息
  **未完待续**
 
-## 那些躲在浏览器背后的项目
+## 项目地址&&那些躲在浏览器背后的项目
+
+ NEL_Scan : 一个区块链浏览器项目,给用户展示区块链上的数据。_[传送门](https://github.com/NewEconoLab/NEL_Scan-Web-React.git)_
+ 
  NEL_Scan_API : 一个专门为浏览器项目提供接口的工程 。_[传送门](https://github.com/NewEconoLab/NEL_Scan_API)_ 
 
  NEL_Block_API : 一个提供链上基础数据，例如块数据，交易数据等没有特别定制化数据的接口工程 。_[传送门](https://github.com/NewEconoLab/NEO_Block_API)_ 
@@ -49,7 +49,8 @@ Although the data on the blockchain is open and transparent, it is not easy to q
 ## Project link
 _[link](https://github.com/NewEconoLab/NELBrowser-Web-React.git)_
 
-## Can I query with an explorer?
+## What can I query with the explorer?
+
  - The latest block height
  - Details of a block
  - Total number of transactions in a block
@@ -62,6 +63,8 @@ _[link](https://github.com/NewEconoLab/NELBrowser-Web-React.git)_
  **To be continued**
 
 ## Projects behind the NEL blockchain explorer
+
+NEL_Scan : A blockchain explorer project that shows the user the data on the blockchain._[传送门](https://github.com/NewEconoLab/NEL_Scan-Web-React.git)_
  
 NEL_Scan_API : A project that provides an interface specifically for this blockchain explorer project. _[link](https://github.com/NewEconoLab/NEL_Scan_API)_
 
