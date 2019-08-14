@@ -46,9 +46,6 @@
 ## Original intention of this project
 Although the data on the blockchain is open and transparent, it is not easy to query and read them. We hoped to create a project that shows the data on the chain to users quickly and easily.
 
-## Project link
-_[link](https://github.com/NewEconoLab/NELBrowser-Web-React.git)_
-
 ## What can I query with the explorer?
 
  - The latest block height
@@ -62,7 +59,7 @@ _[link](https://github.com/NewEconoLab/NELBrowser-Web-React.git)_
  - All information related to the domain name provided by NNS
  **To be continued**
 
-## Projects behind the NEL blockchain explorer
+## Project link && Projects behind the NEL blockchain explorer
 
 NEL_Scan : A blockchain explorer project that shows the user the data on the blockchain._[传送门](https://github.com/NewEconoLab/NEL_Scan-Web-React.git)_
  
