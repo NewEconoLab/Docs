@@ -13,7 +13,7 @@ NEL（NewEconnoLab）是NEO生态的中国开发志愿者社区。我们致力�
 
 ## NEL部分项目传送门
 
-[区块链浏览器](https://scan.nel.group/)
+[区块链浏览器](https://scan.nel.group/)  ([doc](nel-scan/README.md))
 
 [区块链钱包](https://wallet.nel.group/#/login)
 
@@ -46,7 +46,7 @@ NEL新经济实验室 微信号： NewEconoLab
 [传送门](study/study.md)
 
 ## NEL区块链浏览器介绍
-[传送门](scan/scan.md)
+[传送门](nel-scan/README.md)
 
 ***
 
@@ -64,7 +64,7 @@ Go to [official website] (https://nel.group/) for more information.
 
 ## NEL project links
 
-[Blockchain explorer](https://scan.nel.group/)
+[Blockchain explorer](https://scan.nel.group/) ([doc](nel-scan/README.md))
 
 [Blockchain wallet](https://wallet.nel.group/#/login)
 
@@ -97,4 +97,4 @@ NEL WeChat account：NewEconoLab
 [link](study/study.md)
 
 ## NEL blockchain explorer introduction
-[link](scan/scan.md)
+[link](nel-scan/scan.md)
